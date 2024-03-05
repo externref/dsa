@@ -5,8 +5,16 @@ class Stack {
     static int top = -1;
     static int[] stackData = new int[MAX];
 
+    boolean isEmpty(){
+        return top>=0;
+    }
+
+    boolean isFull(){
+        return top==MAX-1;
+    }
+
     boolean push(int data) {
-        if (top >= MAX) {
+        if (isFull()) {
             System.out.println("Stack Overflow");
             return false;
         }
@@ -15,7 +23,7 @@ class Stack {
     }
 
     int pop(int data) {
-        if (top == -1) {
+        if (isEmpty()) {
             System.out.println("Stack Underflow");
             return 0;
         }
@@ -32,8 +40,11 @@ class Stack {
     }
 
     void print() {
-        for (int d : stackData) {
-            System.out.println(d);
+        if(top==-1){
+            System.out.println("Stack underflow");
+        }
+        for(int i=0;i<top+1;i++){
+            System.out.println(stackData[i]);
         }
     }
 
@@ -41,6 +52,7 @@ class Stack {
 
 public class Stacks {
     public static void main(String[] args) {
+        // Stack stack = new Stack();
 
     }
 }
